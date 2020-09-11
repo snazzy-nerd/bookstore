@@ -12,27 +12,11 @@ def order_create(request):
         form = OrderCreateForm(request.POST)
 
         first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        address = request.POST['address']
-        phone = request.POST['phone']
-        postal_code = request.POST['postal_code']
-        city = request.POST['city']
         
-        
-        if cart.coupon:
-            coupon = cart.coupon
-            discount = cart.coupon.discount
-            
-            order = Order.objects.create(first_name=first_name,last_name=last_name,email=email,address=address, 
-                                        phone=phone,postal_code=postal_code,city=city,coupon=coupon,discount=discount)
-         
-        else:
                                       
-            order = Order.objects.create(first_name=first_name,last_name=last_name,email=email,address=address,
-                                    phone=phone,postal_code=postal_code,city=city)
+        order = Order.objects.create(first_name=first_name)
         for item in cart:
-            OrderItem.objects.create(order=order,product=item['product'],price=item['price'],quantity=item['quantity'])
+            OrderItem.objects.create(order=order,product=item['product'])
         # clear the cart
         cart.clear()
         
