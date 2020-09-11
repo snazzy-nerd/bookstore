@@ -32,7 +32,7 @@
        
 
 
-        <title>{% block title %} BookShop {% endblock %}</title>
+        <title>{% block title %} Ms. Campbell's Library {% endblock %}</title>
     </head>
     <body>
         <div class="header--sidebar"></div>
@@ -41,7 +41,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-                            <p>Islamabad, Pakistan - Hotline: 0306-2281-637</p>
+                            <p>7th - 8th grade Books</p>
                         </div>
                         <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                             <div class="header__actions">
@@ -70,16 +70,12 @@
             <nav class="navigation">
                 <div class="container-fluid">
                     <div class="left">
-                        <div class="header__logo"><a class="ps-logo" href="{% url 'index' %}"><img src="{% static 'bookshop/images/logo.png' %}" alt=""></a></div>
+                        <div class="header__logo"><a class="ps-logo" href="{% url 'product_list' %}"><img src="{% static 'bookshop/images/logo.png' %}" alt="" style="width: 200%"></a></div>
                     </div>
                     <div class="center">
                         <ul class="main-menu menu">
-                            <li class="current-menu-item "><a href="{% url 'index' %}">HOME</a></li>
-                            <li><a href="{% url 'product_list' %}">CATEGORY</a></li>
-                            
-                            <li><a href="#">About</a></li>
-                            
-                            <li><a href="{% url 'contact_us' %}">Contact</a></li>
+                            <li class="current-menu-item "><a href="{% url 'product_list' %}">HOME</a></li>
+
                         </ul>
                     </div>
                     <div class="right">
@@ -93,8 +89,8 @@
                                     <div class="ps-cart-item">
                                         <div class="ps-cart-item__thumbnail"><a href="{{ product.get_absolute_url }}"></a><img src="{{product.image.url}}" alt=""></div>
                                         <div class="ps-cart-item__content">
-                                           <a class="ps-cart-item__title" href="{{ product.get_absolute_url }}"><small>{{ product.name }} <br> Single Price ${{ item.price }}</small></a>
-                                           <p> Total Quantity: {{ item.quantity }}x<span> <br> Total Price ${{ item.total_price }}</span></p>
+                                           <a class="ps-cart-item__title" href="{{ product.get_absolute_url }}"><small>{{ product.name }}</small></a>
+                                           <p> Total Quantity: {{ item.quantity }}x<span></p>
                                         </div>
                                         
                                     </div>
